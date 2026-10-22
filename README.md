@@ -22,6 +22,10 @@ The included 8 demo ads are synthetic and use example.invalid; they are NOT real
 
 ![Actual local MiniLM synthetic-demo output](docs/demo.png)
 
+## DEV Week 3 published entry
+
+Published October 23, 2026 with both official DEV challenge tags: [SlothProof contest submission](https://dev.to/livasticvm3primarytmp260920/slothproof-a-lazy-local-ai-that-questions-funded-usdc-bounties-1fjo). This is a verified published project post, **not** an award or earned cash; any human eligibility, tax paperwork and prize distribution remain unverified. The full author draft and reproducibility links are in submission/dev-week3-entry.md.
+
 ## Model is actually used
 
 - Model: Xenova/all-MiniLM-L6-v2 (a port of the 384-dimensional open-weight sentence embedding model; review the model card and its upstream license).
