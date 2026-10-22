@@ -39,6 +39,7 @@ test('human-only ID cannot be outsourced to agent',()=>{
 test('social growth is conspicuously labelled',()=>{
   const a=scan({...base,description:'Get 10 followers and retweet'},now);
   assert.ok(a.reasons.includes(REASON.SOCIAL));
+  assert.equal(a.candidate_only,false);
 });
 test('unknown payout rail is not equivalent to USDC',()=>{
   const a=scan({...base,currency:'XTM'},now);

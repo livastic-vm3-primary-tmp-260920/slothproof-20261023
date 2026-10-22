@@ -29,7 +29,7 @@ export function scan(job, now = new Date()) {
   }
   if(!/^(USDC|USD)$/i.test(String(job.currency||''))) flags.push(REASON.NOT_USDC);
   flags.push(REASON.NONE);
-  const blocked = flags.some(k=>[REASON.PRIOR_OWNER,REASON.COST,REASON.TESTNET,REASON.PAST,REASON.HUMAN].includes(k));
+  const blocked = flags.some(k=>[REASON.PRIOR_OWNER,REASON.COST,REASON.TESTNET,REASON.PAST,REASON.HUMAN,REASON.SOCIAL].includes(k));
   const nominal = Number(job.nominal_reward||0);
   return {
     id: String(job.id||job.title).slice(0,90),

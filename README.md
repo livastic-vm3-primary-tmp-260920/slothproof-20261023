@@ -20,6 +20,8 @@ The first run requires network access **only to fetch the model**; descriptions 
 
 The included 8 demo ads are synthetic and use example.invalid; they are NOT real jobs, customers, receipts, wallet assets or bounty offers.
 
+![Actual local MiniLM synthetic-demo output](docs/demo.png)
+
 ## Model is actually used
 
 - Model: Xenova/all-MiniLM-L6-v2 (a port of the 384-dimensional open-weight sentence embedding model; review the model card and its upstream license).

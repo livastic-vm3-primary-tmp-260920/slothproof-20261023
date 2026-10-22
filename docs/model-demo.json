@@ -3,8 +3,8 @@
   "model": "Xenova/all-MiniLM-L6-v2",
   "semantic_engine": "CPU open-weight local MiniLM sentence embeddings",
   "model_inference_ran": true,
-  "offline_mode": false,
-  "generated_at": "2026-10-22T22:50:49.821Z",
+  "offline_mode": true,
+  "generated_at": "2026-10-22T22:59:54.141Z",
   "source_proof": "USER_SUPPLIED_TEXT_ONLY_NOT_ESCROW_OR_CHAIN",
   "hypothetical_entries": 8,
   "earnings_verified_by_this_tool": 0,
@@ -115,41 +115,6 @@
       "review_priority": 4
     },
     {
-      "id": "sample-4",
-      "title": "Promote our Telegram group and invite friends",
-      "source_url": "https://example.invalid/fake-job-4",
-      "advertised_reward": 5,
-      "currency": "USDC",
-      "reasons": [
-        "SOCIAL_PROMOTION_OR_REFERRAL",
-        "NO_INDEPENDENT_FUNDING_PROOF"
-      ],
-      "candidate_only": true,
-      "can_assert_escrow": false,
-      "can_assert_client_payment": false,
-      "can_assert_wallet_receipt": false,
-      "amount_received": null,
-      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
-      "semantic": {
-        "top": {
-          "category": "social_promotion",
-          "similarity": 0.4722
-        },
-        "runners_up": [
-          {
-            "category": "self_funded",
-            "similarity": 0.3277
-          },
-          {
-            "category": "writing",
-            "similarity": 0.2239
-          }
-        ]
-      },
-      "verified_income": 0,
-      "review_priority": 0.2
-    },
-    {
       "id": "sample-6",
       "title": "Film our mobile product with your physical phone",
       "source_url": "https://example.invalid/fake-job-6",
@@ -218,6 +183,41 @@
       },
       "verified_income": 0,
       "review_priority": -39.2
+    },
+    {
+      "id": "sample-4",
+      "title": "Promote our Telegram group and invite friends",
+      "source_url": "https://example.invalid/fake-job-4",
+      "advertised_reward": 5,
+      "currency": "USDC",
+      "reasons": [
+        "SOCIAL_PROMOTION_OR_REFERRAL",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": false,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "STOP_OR_VERIFY_ELIGIBILITY",
+      "semantic": {
+        "top": {
+          "category": "social_promotion",
+          "similarity": 0.4722
+        },
+        "runners_up": [
+          {
+            "category": "self_funded",
+            "similarity": 0.3277
+          },
+          {
+            "category": "writing",
+            "similarity": 0.2239
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": -39.8
     },
     {
       "id": "sample-7",

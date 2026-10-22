@@ -50,6 +50,11 @@ code{border-radius:4px;background:#233044;padding:.15rem .35rem}pre{background:#
 <p class="caption">The semantic label comes from actual open-weight embedding similarity. Independent deterministic rules explain why a matching listing might still be unsafe or ineligible. All model scores are about <em>meaning</em>, not payouts.</p>
 <div class="layout" id="cards"></div>
 </section>
+<section aria-label="Actual original CLI output">
+<h2>Reproducible CLI evidence</h2>
+<p class="caption">This is rendered from the actual saved MiniLM inference JSON with the included Python script, not an imagined client payout.</p>
+<img src="./demo.png" alt="SlothProof synthetic eight-case MiniLM inference preview: 0 USDC earned, stop signals on testnet, deposit, human-only work and duplicate owner" loading="lazy" style="max-width:100%;height:auto;border-radius:.85rem;border:1px solid #303b4e">
+</section>
 <section>
 <h2>Three gates, not one seductive dollar sign</h2>
 <pre>1. SEMANTIC FIT: MiniLM proposes a topic (NOT a yes/no)
@@ -112,7 +117,7 @@ runBtn.addEventListener('click',async()=>{
   status.textContent='Loading the published open-weight model into your browser; first visit needs a model download. No job APIs, wallet or private inputs are contacted.';
   try{
     if(!example) await loadExamples();
-    const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1');
+    const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
     env.allowRemoteModels=true;
     const embed=await pipeline('feature-extraction',MODEL,{device:'wasm',dtype:'q8'});
     const terms=descriptions.map(d=>d[1]);
