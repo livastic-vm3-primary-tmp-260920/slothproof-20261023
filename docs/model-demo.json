@@ -1,0 +1,293 @@
+{
+  "schema": "slothproof-original-public-text-risk-triage-v1",
+  "model": "Xenova/all-MiniLM-L6-v2",
+  "semantic_engine": "CPU open-weight local MiniLM sentence embeddings",
+  "model_inference_ran": true,
+  "offline_mode": false,
+  "generated_at": "2026-10-22T22:50:49.821Z",
+  "source_proof": "USER_SUPPLIED_TEXT_ONLY_NOT_ESCROW_OR_CHAIN",
+  "hypothetical_entries": 8,
+  "earnings_verified_by_this_tool": 0,
+  "received_usdc_verified_by_this_tool": 0,
+  "no_wallet_read_or_payment": true,
+  "description": "Ranking uses meaning; independent payer escrow, identity and actual receipt always require separate first-party proof.",
+  "ranked": [
+    {
+      "id": "sample-5",
+      "title": "Foundry unit tests for an existing ERC20 library",
+      "source_url": "https://example.invalid/fake-job-5",
+      "advertised_reward": 80,
+      "currency": "USD",
+      "reasons": [
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": true,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
+      "semantic": {
+        "top": {
+          "category": "offline_qa",
+          "similarity": 0.3176
+        },
+        "runners_up": [
+          {
+            "category": "development",
+            "similarity": 0.3066
+          },
+          {
+            "category": "testnet_only",
+            "similarity": 0.3059
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": 7.2
+    },
+    {
+      "id": "sample-1",
+      "title": "Offline x402 browser QA micro-pilot",
+      "source_url": "https://example.invalid/fake-job-1",
+      "advertised_reward": 8,
+      "currency": "USDC",
+      "reasons": [
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": true,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
+      "semantic": {
+        "top": {
+          "category": "offline_qa",
+          "similarity": 0.414
+        },
+        "runners_up": [
+          {
+            "category": "human_fieldwork",
+            "similarity": 0.2289
+          },
+          {
+            "category": "testnet_only",
+            "similarity": 0.2106
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": 4.32
+    },
+    {
+      "id": "sample-8",
+      "title": "Security review competition, one winner",
+      "source_url": "https://example.invalid/fake-job-8",
+      "advertised_reward": 100,
+      "currency": "USDC",
+      "reasons": [
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": true,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
+      "semantic": {
+        "top": {
+          "category": "competition",
+          "similarity": 0.6403
+        },
+        "runners_up": [
+          {
+            "category": "social_promotion",
+            "similarity": 0.3052
+          },
+          {
+            "category": "self_funded",
+            "similarity": 0.2881
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": 4
+    },
+    {
+      "id": "sample-4",
+      "title": "Promote our Telegram group and invite friends",
+      "source_url": "https://example.invalid/fake-job-4",
+      "advertised_reward": 5,
+      "currency": "USDC",
+      "reasons": [
+        "SOCIAL_PROMOTION_OR_REFERRAL",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": true,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
+      "semantic": {
+        "top": {
+          "category": "social_promotion",
+          "similarity": 0.4722
+        },
+        "runners_up": [
+          {
+            "category": "self_funded",
+            "similarity": 0.3277
+          },
+          {
+            "category": "writing",
+            "similarity": 0.2239
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": 0.2
+    },
+    {
+      "id": "sample-6",
+      "title": "Film our mobile product with your physical phone",
+      "source_url": "https://example.invalid/fake-job-6",
+      "advertised_reward": 300,
+      "currency": "USDC",
+      "reasons": [
+        "HUMAN_ID_OR_DEVICE_REQUIRED",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": false,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "STOP_OR_VERIFY_ELIGIBILITY",
+      "semantic": {
+        "top": {
+          "category": "human_fieldwork",
+          "similarity": 0.5908
+        },
+        "runners_up": [
+          {
+            "category": "social_promotion",
+            "similarity": 0.2062
+          },
+          {
+            "category": "self_funded",
+            "similarity": 0.1938
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": -36
+    },
+    {
+      "id": "sample-2",
+      "title": "Get $20 cashback if you pay for five API calls",
+      "source_url": "https://example.invalid/fake-job-2",
+      "advertised_reward": 20,
+      "currency": "USDC",
+      "reasons": [
+        "PREPAYMENT_OR_BOND_MENTION",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": false,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "STOP_OR_VERIFY_ELIGIBILITY",
+      "semantic": {
+        "top": {
+          "category": "self_funded",
+          "similarity": 0.578
+        },
+        "runners_up": [
+          {
+            "category": "testnet_only",
+            "similarity": 0.3155
+          },
+          {
+            "category": "social_promotion",
+            "similarity": 0.1923
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": -39.2
+    },
+    {
+      "id": "sample-7",
+      "title": "Finish a task already filed by your other account",
+      "source_url": "https://example.invalid/fake-job-7",
+      "advertised_reward": 5,
+      "currency": "USDC",
+      "reasons": [
+        "SAME_OWNER_PREVIOUS_ENTRY",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": false,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "STOP_OR_VERIFY_ELIGIBILITY",
+      "semantic": {
+        "top": {
+          "category": "self_funded",
+          "similarity": 0.419
+        },
+        "runners_up": [
+          {
+            "category": "testnet_only",
+            "similarity": 0.2577
+          },
+          {
+            "category": "development",
+            "similarity": 0.2331
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": -39.8
+    },
+    {
+      "id": "sample-3",
+      "title": "0.50 USDC on Base Sepolia faucet",
+      "source_url": "https://example.invalid/fake-job-3",
+      "advertised_reward": 0.5,
+      "currency": "USDC",
+      "reasons": [
+        "TESTNET_OR_FAUCET",
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": false,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "STOP_OR_VERIFY_ELIGIBILITY",
+      "semantic": {
+        "top": {
+          "category": "testnet_only",
+          "similarity": 0.5266
+        },
+        "runners_up": [
+          {
+            "category": "self_funded",
+            "similarity": 0.2262
+          },
+          {
+            "category": "social_promotion",
+            "similarity": 0.1607
+          }
+        ]
+      },
+      "verified_income": 0,
+      "review_priority": -39.98
+    }
+  ]
+}

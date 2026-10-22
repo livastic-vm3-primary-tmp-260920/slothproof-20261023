@@ -1,0 +1,59 @@
+[
+  {
+    "id":"sample-1",
+    "title":"Offline x402 browser QA micro-pilot",
+    "description":"A client needs a reproducible JSON report diagnosing CORS and HTTP 402 from public redacted fixtures. Offering 8 native Base USDC on review. Applicant not yet chosen.",
+    "nominal_reward":8,"currency":"USDC","network":"base",
+    "source_url":"https://example.invalid/fake-job-1"
+  },
+  {
+    "id":"sample-2",
+    "title":"Get $20 cashback if you pay for five API calls",
+    "description":"Spend first using your own deposit and settle $25 of paid API credits before a reward is eligible.",
+    "nominal_reward":20,"currency":"USDC","network":"base",
+    "source_url":"https://example.invalid/fake-job-2"
+  },
+  {
+    "id":"sample-3",
+    "title":"0.50 USDC on Base Sepolia faucet",
+    "description":"A testnet mission pays demo USDC for five on-chain clicks.",
+    "nominal_reward":0.5,"currency":"USDC","network":"sepolia",
+    "source_url":"https://example.invalid/fake-job-3"
+  },
+  {
+    "id":"sample-4",
+    "title":"Promote our Telegram group and invite friends",
+    "description":"Follow our profile, refer a friend and post about our campaign for 5 USDC.",
+    "nominal_reward":5,"currency":"USDC","network":"base",
+    "source_url":"https://example.invalid/fake-job-4"
+  },
+  {
+    "id":"sample-5",
+    "title":"Foundry unit tests for an existing ERC20 library",
+    "description":"New independent buyer advertises $80 for coding two synthetic tests and documentation. No employer acceptance yet.",
+    "nominal_reward":80,"currency":"USD","network":"ethereum",
+    "source_url":"https://example.invalid/fake-job-5"
+  },
+  {
+    "id":"sample-6",
+    "title":"Film our mobile product with your physical phone",
+    "description":"Real human KYC, passport and personally visiting a US retail store required.",
+    "nominal_reward":300,"currency":"USDC","network":"polygon",
+    "source_url":"https://example.invalid/fake-job-6"
+  },
+  {
+    "id":"sample-7",
+    "title":"Finish a task already filed by your other account",
+    "description":"The same human owner previously applied. Earn 5 USDC if selected.",
+    "nominal_reward":5,"currency":"USDC","network":"base",
+    "same_owner_previous_entry":true,
+    "source_url":"https://example.invalid/fake-job-7"
+  },
+  {
+    "id":"sample-8",
+    "title":"Security review competition, one winner",
+    "description":"Submit an original report against source code for a chance to win 100 USDC. Only top accepted result gets the prize.",
+    "nominal_reward":100,"currency":"USDC","network":"base",
+    "source_url":"https://example.invalid/fake-job-8"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "name": "slothproof-local-earnings-triage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local open-weight semantic triage for advertised paid work; never a payout verifier",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/cli.mjs --input examples/synthetic-bounties.json",
+    "offline": "node src/cli.mjs --offline --input examples/synthetic-bounties.json"
+  },
+  "dependencies": {"@huggingface/transformers": "3.8.1"},
+  "license": "MIT"
+}
