@@ -26,6 +26,14 @@ The included 8 demo ads are synthetic and use example.invalid; they are NOT real
 
 Published October 23, 2026 with both official DEV challenge tags: [SlothProof contest submission](https://dev.to/livasticvm3primarytmp260920/slothproof-a-lazy-local-ai-that-questions-funded-usdc-bounties-1fjo). This is a verified published project post, **not** an award or earned cash; any human eligibility, tax paperwork and prize distribution remain unverified. The full author draft and reproducibility links are in submission/dev-week3-entry.md.
 
+## Analyze one real public listing locally
+
+The hosted [demo](https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/) now has an additional **public-text input form**. Paste a *public* title and requirements, choose the nominal currency/network, and indicate whether your single beneficial owner already applied under another VM/account. Then run actual local MiniLM inference and receive the explicit deterministic stop reasons.
+
+The form is deliberately **NOT** a wallet, crawler, customer CRM, payment recipient verifier, API client, log-upload feature, or automated job claimant. It does not fetch the advertised URL, upload the description, call external employer services or store what you typed. The initial download of the open-weight model and runtime scripts still uses public CDNs. Do not paste private HARs, customer data, API keys, cookies, signed x402 headers or secrets. Known credential-like phrases are rejected before model inference, but the filter cannot guarantee detection of all sensitive data. All inputs must already be public and nonsecret.
+
+Try **Load a synthetic example** for a safe reproducible browser demonstration. The input form uses the exact same byte-identical business policy and validation modules as the tested Node source. The supported npm test command now includes local validation, secret-filter, escaping and static-module parity tests. All output still states verified buyer payment and wallet receipts are **not determined by this tool**.
+
 ## Model is actually used
 
 - Model: Xenova/all-MiniLM-L6-v2 (a port of the 384-dimensional open-weight sentence embedding model; review the model card and its upstream license).

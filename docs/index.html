@@ -24,6 +24,15 @@ article h3{margin:.15rem 0 .5rem;font-size:1.08rem}article p{margin:.4rem 0;colo
 code{border-radius:4px;background:#233044;padding:.15rem .35rem}pre{background:#182231;padding:1rem;overflow-x:auto;border-radius:.6rem}
 .note{border-top:1px solid var(--line);padding-top:1rem;color:var(--muted)}
 #status{background:#1b2632;padding:1rem;border:1px solid var(--line);border-radius:.6rem;max-width:1100px}
+.custom-panel{background:var(--panel);border:1px solid var(--line);border-radius:.9rem;padding:1.3rem;margin:1.5rem 0}
+.custom-panel form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.custom-panel label{font-size:.9rem;font-weight:600;display:block;color:var(--muted)}
+.custom-panel input:not([type=checkbox]),.custom-panel textarea,.custom-panel select{display:block;width:100%;background:#121a27;color:#f1f4fa;border:1px solid #45546a;border-radius:.5rem;padding:.65rem;font:inherit;margin:.25rem 0 0}
+.custom-panel textarea{min-height:120px;resize:vertical}
+.custom-panel .wide{grid-column:1/-1}.custom-panel .check{display:flex;align-items:center;gap:.6rem}
+.custom-panel button{justify-self:start}.custom-panel .response{background:#121a27;border:1px solid #40516a;padding:.8rem;border-radius:.6rem;margin:.8rem 0}
+@media(max-width:750px){.custom-panel form{grid-template-columns:1fr}}
+
 @media(max-width:750px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:1fr}header{padding-top:1rem}}
 </style>
 </head>
@@ -44,6 +53,30 @@ code{border-radius:4px;background:#233044;padding:.15rem .35rem}pre{background:#
 <div class="stat"><strong id="count">8</strong><small>Invented examples, not actual jobs</small></div>
 <div class="stat"><strong>0 USDC</strong><small>Payments this demo can verify</small></div>
 <div class="stat"><strong>Local CPU</strong><small>No server-side inference, no wallet</small></div>
+</section>
+<section class="custom-panel" aria-labelledby="your-job-heading">
+<h2 id="your-job-heading">Try a real public job description — locally</h2>
+<p class="caption">Paste only PUBLIC job-ad text you are allowed to use. No URL fetching, payment, login, transaction, browser HAR, account information, signed headers or wallet access. The model is downloaded when first used; your description is embedded in this browser, not uploaded to a hosted AI service. Classification does not confirm escrow or income.</p>
+<form id="public-gig-form" autocomplete="off">
+<label class="wide" for="job-title">Public listing title
+<input id="job-title" name="title" minlength="5" maxlength="140" required placeholder="e.g., Fix a synthetic CSV parser" /></label>
+<label class="wide" for="job-description">Public requirements (do not paste secrets)
+<textarea id="job-description" name="description" minlength="12" maxlength="2000" required placeholder="Example: Fix a bug in a synthetic offline JSON parser, add tests, paid 5 USDC if accepted."></textarea></label>
+<label for="job-reward">Advertised amount (not independently funded)
+<input id="job-reward" name="reward" type="number" min="0" max="1000000" step="any" value="5" required /></label>
+<label for="job-currency">Advertised asset
+<select id="job-currency" name="currency">
+<option value="USDC">USDC</option><option value="USD">USD</option><option value="ETH">ETH</option><option value="USDT">USDT</option><option value="TESTUSDC">TESTUSDC</option><option value="XTM">XTM</option><option value="UNKNOWN">Unverified</option>
+</select></label>
+<label for="job-network">Advertised network
+<select id="job-network" name="network">
+<option value="unknown">Unknown / N/A</option><option value="base">Base mainnet</option><option value="ethereum">Ethereum</option><option value="polygon">Polygon</option><option value="arc">Arc</option><option value="sepolia">Sepolia testnet</option><option value="base-sepolia">Base Sepolia testnet</option>
+</select></label>
+<label class="check wide" for="job-duplicate"><input id="job-duplicate" name="duplicate" type="checkbox" /> This same human owner or another VM already applied.</label>
+<div class="wide"><button type="submit" id="analyze-one">Classify this public listing locally</button> <button type="button" id="use-sample" class="secondary">Load a synthetic example</button> <button type="reset" class="secondary" id="clear-one">Clear</button></div>
+</form>
+<p id="custom-status" role="status" aria-live="polite">No listing has been analyzed or sent anywhere.</p>
+<div id="custom-result" aria-live="polite"></div>
 </section>
 <section aria-labelledby="cases-header">
 <h2 id="cases-header">What the model sees (and what it cannot prove)</h2>
@@ -67,6 +100,8 @@ code{border-radius:4px;background:#233044;padding:.15rem .35rem}pre{background:#
 </main>
 <footer><small>MIT-licensed code · Original demo from synthetic facts · October 2026 · <a href="https://github.com/livastic-vm3-primary-tmp-260920/slothproof-20261023">Inspect source</a></small></footer>
 <script type="module">
+import {validatePublicDraft,safeSemanticText} from './custom.mjs';
+import {scan} from './policy.mjs';
 const cards=document.querySelector('#cards');
 const status=document.querySelector('#status');
 const runBtn=document.querySelector('#run');
@@ -84,6 +119,27 @@ const descriptions=[
 ];
 let report=null;
 let example=null;
+let modelResources=null;
+async function getLocalModel(){
+  if(!modelResources){
+    modelResources=(async()=>{
+      const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
+      env.allowRemoteModels=true;
+      const embed=await pipeline('feature-extraction',MODEL,{device:'wasm',dtype:'q8'});
+      const top=await embed(descriptions.map(d=>d[1]),{pooling:'mean',normalize:true});
+      return {embed,top,cols:top.dims[1]};
+    })().catch(err=>{modelResources=null;throw err});
+  }
+  return modelResources;
+}
+function semanticScores(vector, top, cols){
+  return descriptions.map((d,j)=>{
+    let similarity=0;
+    for(let k=0;k<cols;k++) similarity+=vector[k]*top.data[j*cols+k];
+    return {category:d[0],similarity:Number(similarity.toFixed(4))};
+  }).sort((a,b)=>b.similarity-a.similarity);
+}
+
 function render(data) {
   cards.replaceChildren();
   document.querySelector('#count').textContent=String(data.ranked.length);
@@ -117,20 +173,11 @@ runBtn.addEventListener('click',async()=>{
   status.textContent='Loading the published open-weight model into your browser; first visit needs a model download. No job APIs, wallet or private inputs are contacted.';
   try{
     if(!example) await loadExamples();
-    const {pipeline,env}=await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm');
-    env.allowRemoteModels=true;
-    const embed=await pipeline('feature-extraction',MODEL,{device:'wasm',dtype:'q8'});
-    const terms=descriptions.map(d=>d[1]);
+    const {embed,top,cols}=await getLocalModel();
     const text=example.map(x=>x.title+' '+x.description);
-    const top=await embed(terms,{pooling:'mean',normalize:true});
     const items=await embed(text,{pooling:'mean',normalize:true});
-    const cols=top.dims[1];
     for(let i=0;i<example.length;i++){
-      const scores=descriptions.map((d,j)=>{
-        let sum=0;
-        for(let k=0;k<cols;k++) sum+=items.data[i*cols+k]*top.data[j*cols+k];
-        return {category:d[0],similarity:Number(sum.toFixed(4))};
-      }).sort((a,b)=>b.similarity-a.similarity);
+      const scores=semanticScores(items.data.subarray(i*cols,(i+1)*cols),top,cols);
       const row=report.ranked.find(v=>v.id===example[i].id);
       row.semantic={top:scores[0],runners_up:scores.slice(1,3)};
     }
@@ -147,6 +194,73 @@ downloadBtn.addEventListener('click',()=>{
   const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));
   const a=document.createElement('a');a.href=url;a.download='slothproof-synthetic-demo.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
+const publicForm=document.querySelector('#public-gig-form');
+const publicStatus=document.querySelector('#custom-status');
+const publicResult=document.querySelector('#custom-result');
+const publicButton=document.querySelector('#analyze-one');
+document.querySelector('#use-sample').addEventListener('click',()=>{
+  publicForm.elements.title.value='Offline x402 browser QA small project';
+  publicForm.elements.description.value='Independent buyer proposes 5 Base USDC for reproducible synthetic CORS and HTTP 402 test fixtures. No formal contract, verified escrow or payment yet.';
+  publicForm.elements.reward.value='5';
+  publicForm.elements.currency.value='USDC';
+  publicForm.elements.network.value='base';
+  publicForm.elements.duplicate.checked=false;
+  publicResult.replaceChildren();
+  publicStatus.textContent='Harmless invented example loaded locally. Choose Classify to run actual model inference.';
+});
+publicForm.addEventListener('reset',()=>{
+  publicResult.replaceChildren();
+  publicStatus.textContent='Form cleared; no information was stored or transmitted.';
+});
+publicForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  publicButton.disabled=true;
+  publicResult.replaceChildren();
+  const started=performance.now();
+  try {
+    const f=publicForm.elements;
+    const job=validatePublicDraft({
+      title:f.title.value,description:f.description.value,reward:f.reward.value,
+      currency:f.currency.value,network:f.network.value,sameOwner:f.duplicate.checked,
+    });
+    // The hard-gate scan uses byte-identical source from src/policy.mjs.
+    const gates=scan(job);
+    publicStatus.textContent='Public text validated. Fetching local open-weight model if needed; never fetching the target job or using a wallet.';
+    const {embed,top,cols}=await getLocalModel();
+    const vector=await embed(safeSemanticText(job),{pooling:'mean',normalize:true});
+    const scores=semanticScores(vector.data.subarray(0,cols),top,cols);
+    const card=document.createElement('article');
+    const title=document.createElement('h3');
+    title.textContent=job.title;card.appendChild(title);
+    const classification=document.createElement('p');
+    classification.className='label';
+    classification.textContent='Local MiniLM topic: '+scores[0].category+
+        ' ('+Math.round(100*scores[0].similarity)+'% embedding similarity, NOT payment confidence)';
+    card.appendChild(classification);
+    for(const reason of gates.reasons){
+      const chip=document.createElement('span');
+      chip.className='tag '+(gates.candidate_only?'':'blocked');
+      chip.textContent=reason.replaceAll('_',' ').toLowerCase();
+      card.appendChild(chip);
+    }
+    const warning=document.createElement('p');
+    warning.textContent=gates.candidate_only
+      ? 'Review manually: actual employer, real escrow, right to work, scope and funds remain UNVERIFIED.'
+      : 'STOP or independently verify eligibility before performing any work.';
+    card.appendChild(warning);
+    const money=document.createElement('p');
+    money.textContent='Advertised: '+gates.advertised_reward+' '+gates.currency+
+      '. Verified paid to you by this tool: 0. Wallet receipt/funded escrow: NOT VERIFIED.';
+    card.appendChild(money);
+    publicResult.replaceChildren(card);
+    publicStatus.textContent='LOCAL analysis completed in '+
+        ((performance.now()-started)/1000).toFixed(1)+
+        's. Description was not saved, shared or posted. No wallet action.';
+  } catch(err) {
+    publicStatus.textContent='No result recorded: '+String(err.message).slice(0,240);
+  } finally {publicButton.disabled=false;}
+});
+
 loadExamples().catch(err=>{status.textContent='Demo load error: '+err.message;});
 </script>
 </body>
