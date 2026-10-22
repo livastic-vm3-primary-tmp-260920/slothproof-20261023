@@ -1,0 +1,43 @@
+{
+  "schema": "slothproof.original-one-human-existing-paid-services.v1",
+  "updated_kst": "2026-10-23",
+  "owner": "One real human in South Korea with disclosed AI-assisted tool workflow",
+  "verified_new_buyer_orders": 0,
+  "verified_new_finalized_owner_wallet_receipts_usdc": 0,
+  "no_wallet_connection_on_this_site": true,
+  "independent_order_and_payment_required": true,
+  "products": [
+    {
+      "id": "qa-pilot",
+      "display": "One x402 browser QA micro-pilot",
+      "advertised_price": 5,
+      "currency": "native Circle Base USDC",
+      "delivery": "One authorized public/nonsecret 402/OPTIONS symptom; one synthetic regression fixture, a one-page fault classification and narrow CORS/header checklist.",
+      "buyer_action_url": "mailto:onecursor1@gmail.com?subject=x402%20offline%20QA%20-%205%20or%2019%20Base%20USDC",
+      "quote_status": "illustrative nonbinding until written scope, refund and payment rail agreement",
+      "identity_claim": "One AI-assisted workflow for one human economic owner."
+    },
+    {
+      "id": "qa-expanded",
+      "display": "Expanded offline x402 diagnostics",
+      "advertised_price": 19,
+      "currency": "native Circle Base USDC",
+      "delivery": "Up to two sanitized public 402/OPTIONS/OpenAPI fixture sets, six offline checks maximum, Markdown plus JSON finding bundle and one factual correction round.",
+      "buyer_action_url": "https://github.com/livastic-vm3-primary-tmp-260920/defi-payment-proof-qa/issues/new?template=x402-offline-qa-19-base-usdc.yml",
+      "quote_status": "nonbinding until buyer and seller agree funded scope and acceptance/revisions",
+      "identity_claim": "One AI-assisted workflow for one human economic owner."
+    },
+    {
+      "id": "soul-services",
+      "display": "Existing Soul.Markets agent-to-agent QA services",
+      "advertised_price": null,
+      "currency": "USDC on Base",
+      "delivery": "Five existing separately priced public-data QA service listings, currently nominal 0.75–3.50 USDC. Buyer initiates any paid service only through the platform's real native USDC x402 flow.",
+      "buyer_action_url": "https://api.soul.mds.markets/v1/soul/vm3-usdc-receipt-qa",
+      "quote_status": "Platform keeps 20%, seller balance is custodial until original authorized wallet withdrawal; actual owner current orders/earnings0.",
+      "identity_claim": "Existing single-owner transparent AI-assisted merchant; new account not created."
+    }
+  ],
+  "privacy_rule": "Never send raw HAR, signed payment headers, cookies, private wallets, credentials, proprietary customer records, or payment authorization.",
+  "evidence": "Original VM3 signed-in DEV article links and authentic read-only Soul.Markets public API GET200 on 2026-10-23. No paid customer or transaction evidenced."
+}

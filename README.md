@@ -43,6 +43,12 @@ Try **Load a synthetic example** for a safe reproducible browser demonstration. 
 - Labels: offline QA, development, self-funded offer, testnet, human fieldwork, social promotion, writing, competition.
 - Policy: independent, inspectable checks for bond, owner duplicate, testnet, expired deadline and human-only eligibility. Semantic score never overrides hard gates.
 
+## Separate existing paid offline QA services (no site checkout)
+
+The demo now includes a clearly optional existing-original-owner sales section. The free semantic checker remains available without purchase. A genuine independent x402 developer may request an uncommitted written 5 native Circle Base USDC synthetic-only QA pilot through the seller's [already published contact route](mailto:onecursor1@gmail.com?subject=x402%20offline%20QA%20-%205%20or%2019%20Base%20USDC), or open the existing [19-USDC scoped GitHub inquiry](https://github.com/livastic-vm3-primary-tmp-260920/defi-payment-proof-qa/issues/new?template=x402-offline-qa-19-base-usdc.yml). Both are requests to discuss an independently funded paid contract, not an automatically accepted invoice or permission to send customer secrets.
+
+The operator's existing [Soul.Markets public service catalog](https://api.soul.mds.markets/v1/soul/vm3-usdc-receipt-qa) currently lists five buyer-initiated, separately priced USDC public-data QA services. This direct JSON link is a read-only, first-party catalog, not a fictitious payment portal. The Soul seller platform charges a commission and has a custodial payout threshold, so an order or balance is NOT a verified original wallet receipt. As of this update there are zero confirmed independent buyers, orders and new paid settlements from this program. The source of each link and the nonbinding terms are recorded in the static docs/paid-offers.json file and enforced with test/offers.test.mjs.
+
 ## What it refuses to do
 
 1. No wallet signing, approving, spending, bridging, or key handling.
