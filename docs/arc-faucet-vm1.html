@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://apexfaucet.xyz; img-src 'self'; object-src 'none'; form-action 'none'; base-uri 'none';">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Original VM1 Arc USDC faucet ownership-proof helper</title>
+<link rel="stylesheet" href="./arc-faucet-vm1.css">
+</head>
+<body>
+<main>
+<h1>Original-owner Arc USDC claim</h1>
+<p>One legitimate EVM wallet, one authorized faucet claim. This tool only signs an <strong>exact human-readable EIP-191 message</strong> from <a href="https://apexfaucet.xyz/arc/faucet/" target="_blank" rel="noopener noreferrer">APEX’s official Arc mainnet faucet</a>. No transaction, token allowance, transfer, or gas fee is authorized.</p>
+<p class="warning"><strong>Not Base.</strong> A successful claim receives 0.01 native Arc mainnet USDC (chain 5042), not the Base network (8453) USDC previously held by this wallet. Arc token spendability/cash-out remains separate and unknown.</p>
+<dl><dt>Owner wallet (public address only)</dt><dd id="address">0x4e3106520E40af30870caFE78da1B1e7110eD98E</dd><dt>Faucet</dt><dd><code>https://apexfaucet.xyz</code></dd><dt>Expected claim</dt><dd>0.01 Arc USDC, operator-paid gas, subject to contract caps</dd></dl>
+<p>Step 1 verifies the **official first-party** availability and one-day challenge. Step 2 asks MetaMask to sign precisely that ownership statement, then submits this one receipt only to the official APEX API. A message signature is not permission to spend USDC. No private keys, passwords, seeds, or signatures are saved or copied.</p>
+<button id="inspect" type="button">1. Inspect official eligibility and challenge</button>
+<pre id="challenge" aria-label="Exact EIP-191 challenge to sign">No challenge fetched.</pre>
+<button id="claim" type="button" disabled>2. Connect original wallet, sign ownership and claim</button>
+<p id="result" role="status" aria-live="polite">No request has been submitted.</p>
+<p>After one attempt the button remains disabled even if the remote service fails. Never authorize a signing prompt if it requests a transaction, token approval, a different address, or text other than the inspected APEX ownership challenge.</p>
+</main>
+<script type="module" src="./arc-faucet-vm1.mjs"></script>
+</body>
+</html>
