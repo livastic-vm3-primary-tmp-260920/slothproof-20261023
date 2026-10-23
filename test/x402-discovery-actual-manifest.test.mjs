@@ -7,7 +7,7 @@ const root=path.resolve(import.meta.dirname,'..');
 const document=JSON.parse(fs.readFileSync(path.join(root,'docs/x402-vm3-quote-manifest.json'),'utf8'));
 const site=fs.readFileSync(path.join(root,'docs/index.html'),'utf8');
 const readme=fs.readFileSync(path.join(root,'README.md'),'utf8');
-const lookup='https://bazaar.saylorinnovations.com/resources/69272';
+const lookup='https://bazaar.saylorinnovations.com/resources/69298';
 const sale='https://vm5-openapi-x402.onrender.com/v1/x402-preflight';
 
 test('same one beneficial owner keeps original service and adds only one distinct VM1-payable product',()=>{

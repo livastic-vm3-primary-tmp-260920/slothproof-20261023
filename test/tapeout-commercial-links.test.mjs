@@ -44,7 +44,10 @@ test('no secrets, fake customers, buy-now signer or invented security guarantee'
 });
 test('existing SlothProof homepage and README point to the new distinct resource without overwriting prior one',()=>{
  assert.ok(home.includes('./tapeout-cpu0-diff.html'));
- assert.ok(home.includes('https://bazaar.saylorinnovations.com/resources/69272'));
+ assert.ok(home.includes('https://bazaar.saylorinnovations.com/resources/69298'));
+ assert.ok(home.includes('https://bazaar.saylorinnovations.com/resources/69299'));
+ assert.ok(home.includes('https://api.x402dash.com/v1/endpoints?q=tapeout-cpu0-diff'));
+ assert.doesNotMatch(home,/\/resources\/69272/);
  assert.ok(home.includes('https://vm5-openapi-x402.onrender.com/v1/x402-sample'));
  assert.ok(readme.includes('Actual paid TapeOut x402 resource links'));
  assert.ok(readme.includes(newer));
