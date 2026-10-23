@@ -4,7 +4,7 @@
   "semantic_engine": "CPU open-weight local MiniLM sentence embeddings",
   "model_inference_ran": true,
   "offline_mode": true,
-  "generated_at": "2026-10-22T22:59:54.141Z",
+  "generated_at": "2026-10-23T01:06:37.271Z",
   "source_proof": "USER_SUPPLIED_TEXT_ONLY_NOT_ESCROW_OR_CHAIN",
   "hypothetical_entries": 8,
   "earnings_verified_by_this_tool": 0,
@@ -12,40 +12,6 @@
   "no_wallet_read_or_payment": true,
   "description": "Ranking uses meaning; independent payer escrow, identity and actual receipt always require separate first-party proof.",
   "ranked": [
-    {
-      "id": "sample-5",
-      "title": "Foundry unit tests for an existing ERC20 library",
-      "source_url": "https://example.invalid/fake-job-5",
-      "advertised_reward": 80,
-      "currency": "USD",
-      "reasons": [
-        "NO_INDEPENDENT_FUNDING_PROOF"
-      ],
-      "candidate_only": true,
-      "can_assert_escrow": false,
-      "can_assert_client_payment": false,
-      "can_assert_wallet_receipt": false,
-      "amount_received": null,
-      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
-      "semantic": {
-        "top": {
-          "category": "offline_qa",
-          "similarity": 0.3176
-        },
-        "runners_up": [
-          {
-            "category": "development",
-            "similarity": 0.3066
-          },
-          {
-            "category": "testnet_only",
-            "similarity": 0.3059
-          }
-        ]
-      },
-      "verified_income": 0,
-      "review_priority": 7.2
-    },
     {
       "id": "sample-1",
       "title": "Offline x402 browser QA micro-pilot",
@@ -76,6 +42,20 @@
             "similarity": 0.2106
           }
         ]
+      },
+      "topic_assessment": {
+        "display_category": "offline_qa",
+        "abstained": false,
+        "raw_top_category": "offline_qa",
+        "raw_top_similarity": 0.414,
+        "next_category": "human_fieldwork",
+        "next_similarity": 0.2289,
+        "margin": 0.1851,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
       },
       "verified_income": 0,
       "review_priority": 4.32
@@ -111,8 +91,70 @@
           }
         ]
       },
+      "topic_assessment": {
+        "display_category": "competition",
+        "abstained": false,
+        "raw_top_category": "competition",
+        "raw_top_similarity": 0.6403,
+        "next_category": "social_promotion",
+        "next_similarity": 0.3052,
+        "margin": 0.3351,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
+      },
       "verified_income": 0,
       "review_priority": 4
+    },
+    {
+      "id": "sample-5",
+      "title": "Foundry unit tests for an existing ERC20 library",
+      "source_url": "https://example.invalid/fake-job-5",
+      "advertised_reward": 80,
+      "currency": "USD",
+      "reasons": [
+        "NO_INDEPENDENT_FUNDING_PROOF"
+      ],
+      "candidate_only": true,
+      "can_assert_escrow": false,
+      "can_assert_client_payment": false,
+      "can_assert_wallet_receipt": false,
+      "amount_received": null,
+      "human_next_step": "CHECK_INDEPENDENT_PAYER_ESCROW_AND_SCOPE",
+      "semantic": {
+        "top": {
+          "category": "offline_qa",
+          "similarity": 0.3176
+        },
+        "runners_up": [
+          {
+            "category": "development",
+            "similarity": 0.3066
+          },
+          {
+            "category": "testnet_only",
+            "similarity": 0.3059
+          }
+        ]
+      },
+      "topic_assessment": {
+        "display_category": "uncertain_topic",
+        "abstained": true,
+        "raw_top_category": "offline_qa",
+        "raw_top_similarity": 0.3176,
+        "next_category": "development",
+        "next_similarity": 0.3066,
+        "margin": 0.011,
+        "reason": "LOW_SEMANTIC_SIMILARITY",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
+      },
+      "verified_income": 0,
+      "review_priority": 3.2
     },
     {
       "id": "sample-6",
@@ -145,6 +187,20 @@
             "similarity": 0.1938
           }
         ]
+      },
+      "topic_assessment": {
+        "display_category": "human_fieldwork",
+        "abstained": false,
+        "raw_top_category": "human_fieldwork",
+        "raw_top_similarity": 0.5908,
+        "next_category": "social_promotion",
+        "next_similarity": 0.2062,
+        "margin": 0.3846,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
       },
       "verified_income": 0,
       "review_priority": -36
@@ -181,6 +237,20 @@
           }
         ]
       },
+      "topic_assessment": {
+        "display_category": "self_funded",
+        "abstained": false,
+        "raw_top_category": "self_funded",
+        "raw_top_similarity": 0.578,
+        "next_category": "testnet_only",
+        "next_similarity": 0.3155,
+        "margin": 0.2625,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
+      },
       "verified_income": 0,
       "review_priority": -39.2
     },
@@ -215,6 +285,20 @@
             "similarity": 0.2239
           }
         ]
+      },
+      "topic_assessment": {
+        "display_category": "social_promotion",
+        "abstained": false,
+        "raw_top_category": "social_promotion",
+        "raw_top_similarity": 0.4722,
+        "next_category": "self_funded",
+        "next_similarity": 0.3277,
+        "margin": 0.1445,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
       },
       "verified_income": 0,
       "review_priority": -39.8
@@ -251,6 +335,20 @@
           }
         ]
       },
+      "topic_assessment": {
+        "display_category": "self_funded",
+        "abstained": false,
+        "raw_top_category": "self_funded",
+        "raw_top_similarity": 0.419,
+        "next_category": "testnet_only",
+        "next_similarity": 0.2577,
+        "margin": 0.1613,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
+      },
       "verified_income": 0,
       "review_priority": -39.8
     },
@@ -285,6 +383,20 @@
             "similarity": 0.1607
           }
         ]
+      },
+      "topic_assessment": {
+        "display_category": "testnet_only",
+        "abstained": false,
+        "raw_top_category": "testnet_only",
+        "raw_top_similarity": 0.5266,
+        "next_category": "self_funded",
+        "next_similarity": 0.2262,
+        "margin": 0.3004,
+        "reason": "DISTINCT_TOP_PROTOTYPE",
+        "confidence_probability": null,
+        "funding_verified": false,
+        "receipt_verified": false,
+        "explanation": "Heuristic topic suggestion only; no independent employer, escrow or wallet receipt checks."
       },
       "verified_income": 0,
       "review_priority": -39.98

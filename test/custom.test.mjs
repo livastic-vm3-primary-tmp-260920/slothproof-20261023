@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validatePublicDraft,safeSemanticText} from '../src/custom.mjs';
 import {scan,REASON} from '../src/policy.mjs';
+import {assessSemantic} from '../src/quality.mjs';
 const input={
  title:'Review public x402 browser behavior',
  description:'Build a synthetic browser QA regression and source-backed security checklist for an independent buyer.',
@@ -66,10 +67,36 @@ test('blank price is not silently interpreted as free buyer agreement',()=>{
  assert.equal(p.nominal_reward,0);
  assert.equal(scan(p).amount_received,null);
 });
+test('weak near-tie and low semantic similarity abstain without false payment confidence',()=>{
+ const weak=assessSemantic({top:{category:'offline_qa',similarity:0.3176},runners_up:[{category:'development',similarity:0.3066}]});
+ assert.equal(weak.display_category,'uncertain_topic');
+ assert.equal(weak.abstained,true);
+ assert.equal(weak.confidence_probability,null);
+ assert.equal(weak.funding_verified,false);
+ assert.equal(weak.receipt_verified,false);
+ const solid=assessSemantic({top:{category:'offline_qa',similarity:0.414},runners_up:[{category:'human_fieldwork',similarity:0.2289}]});
+ assert.equal(solid.display_category,'offline_qa');
+ assert.equal(solid.abstained,false);
+ assert.equal(solid.margin,0.1851);
+ const tie=assessSemantic({top:{category:'writing',similarity:0.5},runners_up:[{category:'development',similarity:0.48}]});
+ assert.equal(tie.abstained,true);
+ assert.equal(tie.reason,'NEAR_TIED_PROTOTYPES');
+});
+test('semantic invalid numbers, impossible ranks, or absent runner fail closed',()=>{
+ for(const val of [
+  {top:{category:'offline_qa',similarity:NaN},runners_up:[{category:'development',similarity:0.3}]},
+  {top:{category:'offline_qa',similarity:0.2},runners_up:[{category:'development',similarity:0.3}]},
+  {top:{category:'offline_qa',similarity:0.4},runners_up:[]},
+ ]) assert.throws(()=>assessSemantic(val),/Expected sorted/);
+});
 test('static docs contain byte-identical validation and cash policy modules',()=>{
  assert.equal(
   fs.readFileSync(new URL('../src/custom.mjs',import.meta.url),'utf8'),
   fs.readFileSync(new URL('../docs/custom.mjs',import.meta.url),'utf8')
+ );
+ assert.equal(
+  fs.readFileSync(new URL('../src/quality.mjs',import.meta.url),'utf8'),
+  fs.readFileSync(new URL('../docs/quality.mjs',import.meta.url),'utf8')
  );
  assert.equal(
   fs.readFileSync(new URL('../src/policy.mjs',import.meta.url),'utf8'),

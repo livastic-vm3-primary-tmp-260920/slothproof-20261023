@@ -34,6 +34,21 @@ The form is deliberately **NOT** a wallet, crawler, customer CRM, payment recipi
 
 Try **Load a synthetic example** for a safe reproducible browser demonstration. The input form uses the exact same byte-identical business policy and validation modules as the tested Node source. The supported npm test command now includes local validation, secret-filter, escaping and static-module parity tests. All output still states verified buyer payment and wallet receipts are **not determined by this tool**.
 
+## Uncertain-topic abstention (October 23 update)
+
+A highest-similarity label is not automatically a trustworthy classification. The
+new `src/quality.mjs` checks two *heuristics* on the top two local model scores:
+if the highest cosine similarity is below 0.35, or its advantage over the next
+prototype is below 0.045, the page shows **uncertain topic** and the unmodified
+raw top match. These values are transparent presentation thresholds, not
+statistically calibrated probabilities. For the real eight invented examples,
+a low-similarity Foundry request now abstains; the stronger x402 QA example
+still suggests offline QA. Both retain the same independent payer/escrow/receipt
+stop gates. `npm test` covers ambiguous, near-tied, invalid and distinct inputs;
+`docs/quality.mjs` is byte-for-byte synced to the tested Node module.
+
+**Nothing about this upgrade is a user-payment check or a claim of prize money.**
+
 ## Model is actually used
 
 - Model: Xenova/all-MiniLM-L6-v2 (a port of the 384-dimensional open-weight sentence embedding model; review the model card and its upstream license).

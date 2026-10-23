@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises';
 import {scan} from './policy.mjs';
 import {loadSemantic,MODEL} from './semantic.mjs';
+import {assessSemantic} from './quality.mjs';
 const args=process.argv.slice(2);
 const option=(k,def)=>args.includes(k)?args[args.indexOf(k)+1]:def;
 const infile=option('--input','examples/synthetic-bounties.json');
@@ -14,9 +15,9 @@ const screened=jobs.map(j=>scan(j));
 const local=await loadSemantic({offline});
 const vectors=await local(jobs.map(j=>[j.title,j.description].filter(Boolean).join(' ')));
 const ranked=screened.map((r,i)=>({
-  ...r,semantic:vectors[i],verified_income:0,
+  ...r,semantic:vectors[i],topic_assessment:assessSemantic(vectors[i]),verified_income:0,
   review_priority:Number((Math.min(100,r.advertised_reward)*0.04+
-      (vectors[i].top.category==='offline_qa'||vectors[i].top.category==='development'?4:0)-
+      (!assessSemantic(vectors[i]).abstained && (vectors[i].top.category==='offline_qa'||vectors[i].top.category==='development')?4:0)-
       (r.candidate_only?0:40)).toFixed(2)),
 })).sort((a,b)=>b.review_priority-a.review_priority);
 console.log(JSON.stringify({
