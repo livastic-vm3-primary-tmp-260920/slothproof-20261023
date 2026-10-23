@@ -1,0 +1,21 @@
+{
+  "x402Version": 2,
+  "name": "One Cursor VM3 — x402 Public Quote QA",
+  "description": "One human economic owner, AI-assisted. Synthetic or sanitized public x402 v2 HTTP 402 quote parsing and deterministic offline structural checks; no merchant site requests, wallet signatures, transactions, investment advice or audit certifications. One author-owned original VM3 tool hosted at the same owner's VM5 live merchant.",
+  "homepage": "https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/",
+  "resources": [
+    {
+      "url": "https://vm5-openapi-x402.onrender.com/v1/x402-preflight",
+      "description": "GET. Buyer supplies an optional public sanitized x402 quote; if absent, the service analyzes its clearly synthetic example. Valid input returns machine-readable x402 version, Base native Circle USDC payment terms, public payTo format and 8 consistency checks. No external merchant access. $0.01 genuine x402 payment required for this route.",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "amount": "10000",
+          "payTo": "0x6b01efA0705E91a7aca54271510bf9e594717f34"
+        }
+      ]
+    }
+  ]
+}
