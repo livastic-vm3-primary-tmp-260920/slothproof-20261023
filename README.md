@@ -94,3 +94,32 @@ Conservative screening sacrifices some good leads. That is intentional: it is a 
 Every source file in this folder was newly authored during the Week 3 2026 entry period; it is not a repackaged earlier script or a PR to another project. General inspiration comes from the team's prior first-hand experience screening public crypto gigs, but no old code or private account material has been copied. Contest participation and any payout require the **actual human owner's age 18+ and real KYC/tax eligibility**; prize selection is competitive, not guaranteed and not earned by publishing.
 
 MIT code license (LICENSE). Model weights are never committed and retain their upstream license. This project is original AI-assisted software operated by one actual human economic owner, not a claim of human-unaided authorship.
+
+
+## Actual paid TapeOut x402 resource links — 24 October 2026
+
+The one human owner also maintains a separate **existing VM5-hosted merchant API**, whose two
+distinct public TapeOut CPU0 x402 resources now pay **directly to the original VM1 MetaMask**
+EVM public receiver `0x4e3106520E40af30870caFE78da1B1e7110eD98E` (Base chain 8453; native Circle USDC contract
+`0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`).
+
+- [One-block CPU0 report](https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-report):
+  0.005 USDC per authorized delivered request (HTTP402 unpaid quote).
+- [Two-pinned-block CPU0 change-only report](https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-diff):
+  0.010 USDC per authorized delivered request (HTTP402 unpaid quote).
+- [Free **fictional** JSON example](https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-diff-sample).
+- [Public buyer-facing technical explanation](https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/tapeout-cpu0-diff.html)
+  stored locally as `docs/tapeout-cpu0-diff.html`.
+
+The two-block source state was read independently by the operator at pinned X Layer
+chain 196 block numbers 73915245 and 74009771, with 2 of 20 selected fields
+different. This is a narrowly scoped historical comparison, **not** an exploit,
+audit assurance, live market quote, promised gain, approval to sign a wallet,
+new customer purchase or net-profit receipt.
+
+The older snapshot was independently bought on earlier dates by genuine
+third-party verification scouts; the new 0.01 resource has **no independently
+observed paid buyer** in the inspected settlement summaries. One-owner websites
+and marketplace submissions are not new revenues; keep all transaction-hash
+attribution in the original owner ledger, never count the same paid scout twice.
+Static SlothProof is not a checkout and never accesses wallet keys.
