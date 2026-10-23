@@ -16,6 +16,19 @@
           "payTo": "0x6b01efA0705E91a7aca54271510bf9e594717f34"
         }
       ]
+    },
+    {
+      "url": "https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-diff",
+      "description": "GET. Existing single-human original-owner API: source-pinned historical change-only TapeOut X Layer CPU0 report comparing 20 publicly readable factory, market, owner and token fields at TWO specified blocks. Fixed scope, not real-time or a security audit. Genuine x402 v2 native Circle Base USDC payment 0.01 per delivered JSON result DIRECT to the original existing VM1 MetaMask public payTo. Synthetic free preview: https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-diff-sample. No claim of independent customer purchases or guaranteed findings.",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "amount": "10000",
+          "payTo": "0x4e3106520E40af30870caFE78da1B1e7110eD98E"
+        }
+      ]
     }
   ]
 }

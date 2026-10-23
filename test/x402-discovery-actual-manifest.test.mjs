@@ -10,9 +10,11 @@ const readme=fs.readFileSync(path.join(root,'README.md'),'utf8');
 const lookup='https://bazaar.saylorinnovations.com/resources/69272';
 const sale='https://vm5-openapi-x402.onrender.com/v1/x402-preflight';
 
-test('one existing original author VM3 service, not bulk owner spam',()=>{
+test('same one beneficial owner keeps original service and adds only one distinct VM1-payable product',()=>{
  assert.equal(document.x402Version,2);
- assert.equal(document.resources.length,1);
+ assert.equal(document.resources.length,2);
+ assert.equal(document.resources[1].url,'https://vm5-openapi-x402.onrender.com/v1/tapeout-cpu0-diff');
+ assert.equal(new Set(document.resources.map(x=>x.url)).size,2);
  assert.equal(document.resources[0].url,sale);
  assert.match(document.name,/VM3/);
 });
