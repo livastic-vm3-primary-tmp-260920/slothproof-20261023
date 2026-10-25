@@ -6,6 +6,12 @@ Sloths should not read 50 crypto bounties to discover that 43 demand a payment, 
 
 The tool NEVER classifies a posting as funded or paid just because the copy says "escrowed". Every output says escrow, client payment and wallet receipt remain **unverified**. It never operates a crypto wallet.
 
+## For real x402 API sellers: scoped Base USDC checkout diagnostics
+
+[**Buyer guide — one HTTP 402/OPTIONS regression pilot for 5 Base USDC, or an expanded offline QA scope for 19 Base USDC**](https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/x402-base-usdc-qa.html) · [public source page](docs/x402-base-usdc-qa.html).
+
+This is a separately scoped, **manual proposal**, not an automatic SlothProof charge or certification. A customer sends only sanitized public 402/CORS/OpenAPI evidence, and the original single human owner transparently uses substantial AI assistance to produce reproducible synthetic tests and a Markdown report. **No user wallet connection, signed payload, private key or advance transfer is requested**; pricing, payout rail, delivery and refund terms require the buyer's written agreement before work starts. Links to existing free example traces, the original email intake and the original GitHub issue template are on the buyer page. A listing, email click or proposal is not an order or actual income.
+
 ## Run
 
 Node.js 20 or newer. First run downloads the open-weight model once into the ignored .model-cache folder.
