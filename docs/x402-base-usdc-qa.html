@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>x402 HTTP 402 / Base USDC payment QA — Offline quote and CORS checks</title>
+  <meta name="description" content="Independent, offline x402 HTTP 402 and Base USDC quote QA for API sellers. Public synthetic fixtures. Request a scoped $5 or $19 diagnostic; no wallet access.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/x402-base-usdc-qa.html">
+  <link rel="sitemap" type="application/xml" href="./sitemap.xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="x402 HTTP 402 / Base USDC payment QA — offline, scope-first">
+  <meta property="og:description" content="Check the 402 price, network, asset, payee, browser CORS and delivery boundary before customer funds move. Fixed-scope $5/$19 proposals.">
+  <meta property="og:url" content="https://livastic-vm3-primary-tmp-260920.github.io/slothproof-20261023/x402-base-usdc-qa.html">
+  <style>
+    :root {color-scheme:dark;--bg:#0c121a;--panel:#172231;--text:#ecf4fa;--muted:#bdc9d8;--accent:#a8e4c5;--border:#354a61}
+    *{box-sizing:border-box}
+    body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;margin:0}
+    header,main,footer{max-width:960px;margin:auto;padding:1.35rem}
+    header{padding-top:3rem}h1{font-size:clamp(2rem,5vw,3rem);line-height:1.17;margin:.5rem 0}
+    p{max-width:860px}.muted,small{color:var(--muted)}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+    a{color:#bcf0ff}a:hover{color:#fff}a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .card{border:1px solid var(--border);border-radius:.85rem;padding:1.25rem;background:var(--panel);margin-bottom:1rem}
+    .card h2{margin-top:0;font-size:1.3rem}.price{font-size:2rem;color:var(--accent);font-weight:750}
+    .button{display:inline-block;color:#0c2020;background:var(--accent);text-decoration:none;padding:.7rem 1rem;border-radius:.5rem;font-weight:700}
+    .button:hover{color:#081416;background:#d3ffdf}
+    code{background:#253546;border-radius:4px;padding:.09rem .28rem;overflow-wrap:anywhere}
+    pre{white-space:pre-wrap;word-break:break-word;background:#111a29;padding:1rem;border-radius:.65rem;border:1px solid var(--border)}
+    .steps li{margin-bottom:.45rem}.foot{border-top:1px solid var(--border);padding-top:1.3rem}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}header{padding-top:1rem}}
+  </style>
+</head>
+<body>
+<header>
+  <p class="eyebrow">One accountable human owner · AI-assisted, consent-based offline QA</p>
+  <h1>Why does your Base USDC x402 checkout fail?</h1>
+  <p>Request an evidence-first, fixed-scope analysis of an <strong>HTTP 402</strong> payment quote, CORS preflight, or post-payment delivery problem. We use public, sanitized or wholly synthetic fixtures. <strong>This page does not connect a wallet, charge a fee, or prove a settlement.</strong></p>
+  <p><a href="./index.html">SlothProof open-weight free screening demo</a> · <a href="./tapeout-cpu0-diff.html">Free sample: two real public x402 routes compared without paying</a></p>
+</header>
+<main>
+  <section aria-labelledby="scope-heading">
+    <h2 id="scope-heading">What a reproducible x402 finding needs</h2>
+    <ol class="steps">
+      <li><strong>Public 402 response:</strong> capture HTTP status and a safe decoding of <code>PAYMENT-REQUIRED</code> from the seller's <em>public</em> endpoint. In x402 v2 this advertises the resource and accepts list; it is <strong>not a payment receipt</strong>.</li>
+      <li><strong>Network and asset:</strong> distinguish Base mainnet <code>eip155:8453</code> from Base Sepolia <code>eip155:84532</code>; check the actual <code>asset</code> value, not merely the token name. Native Circle Base USDC contract: <code>0x833589fCD6eDb6E08f4C7C32D4f71b54bdA02913</code>.</li>
+      <li><strong>Price and payee:</strong> compare the precise amount in six-decimal Base USDC units and <code>payTo</code> against the seller's own documented terms. A seller address need not be the customer's address.</li>
+      <li><strong>Browser compatibility:</strong> compare an unpaid <code>OPTIONS</code> preflight and CORS exposure of <code>PAYMENT-REQUIRED</code> against the request origin. Browser success and server-to-server success are different claims.</li>
+      <li><strong>Delivery and settlement:</strong> separate a payment quote, a verified on-chain transfer, and the actual post-payment resource body. Claim a successful sale <strong>only</strong> when real source-specific settlement and delivery evidence exists.</li>
+    </ol>
+    <p class="muted">Official protocol source: <a href="https://github.com/x402-foundation/x402/blob/main/specs/transports-v2/http.md" rel="noopener noreferrer">x402 Foundation HTTP transport v2</a>. This is a reproducibility checklist, not a wallet audit or a promise that your seller is solvent.</p>
+  </section>
+  <section aria-labelledby="offers-heading">
+    <h2 id="offers-heading">Request a narrow, priced diagnostic</h2>
+    <div class="grid">
+      <article class="card">
+        <h2>Single 402 / OPTIONS QA pilot</h2>
+        <p class="price">$5 <small>USDC on Base, proposed fixed scope</small></p>
+        <p>One authorized public/nonsecret 402 or OPTIONS symptom, one wholly synthetic regression fixture, a one-page fault classification, and a concise CORS/header checklist.</p>
+        <p><a class="button" href="mailto:onecursor1@gmail.com?subject=x402%20offline%20QA%20-%205%20or%2019%20Base%20USDC">Ask for a $5 written scope</a></p>
+      </article>
+      <article class="card">
+        <h2>Expanded offline x402 diagnostics</h2>
+        <p class="price">$19 <small>USDC on Base, proposed fixed scope</small></p>
+        <p>Up to two sanitized public 402/OPTIONS/OpenAPI fixture sets; a maximum of six offline checks; a Markdown and JSON finding bundle; and one factual correction round.</p>
+        <p><a class="button" href="https://github.com/livastic-vm3-primary-tmp-260920/defi-payment-proof-qa/issues/new?template=x402-offline-qa-19-base-usdc.yml">Open a $19 QA request on GitHub</a></p>
+        <p class="muted">GitHub sign-in is required for the issue form. <a href="mailto:onecursor1@gmail.com?subject=x402%20offline%20QA%20-%205%20or%2019%20Base%20USDC">Email is an alternative.</a></p>
+      </article>
+    </div>
+    <p><strong>Both prices are nonbinding until scope, acceptance, refund policy, and supported settlement rail are agreed in writing.</strong> Do not transfer USDC in response to this page. No package requires a stake, bond, private key, API token, customer password, or raw confidential HAR. This service does not conduct live unauthorised pentests, execute signed user payments, promise a critical finding, or guarantee a buyer/sponsor reimbursement.</p>
+  </section>
+  <section class="card" aria-labelledby="example-heading">
+    <h2 id="example-heading">Safe, free example of the kind of discrepancy we report</h2>
+    <p>A fictional quote for <code>eip155:84532</code> (testnet) is <strong>not</strong> a $0.01 charge on Base mainnet. The word “USDC” in a listing is not token identity. This example is a local synthetic fixture; no seller, wallet, or payment is involved.</p>
+<pre aria-label="Synthetic x402 v2 quote">HTTP/1.1 402 Payment Required
+PAYMENT-REQUIRED: &lt;base64-encoded JSON from the seller&gt;
+
+Decoded accepts[0]:
+  network: eip155:84532   # TESTNET, not Base 8453
+  scheme: exact
+  amount: 10000            # 0.010000 of a six-decimal test token
+  asset: 0x&lt;testnet-token-address&gt;
+  payTo: 0x&lt;testnet-payee-address&gt;
+Result: NEEDS INDEPENDENT VERIFICATION; 0 mainnet USDC receipts.</pre>
+    <p>For existing public no-payment comparisons, see the <a href="./tapeout-cpu0-diff.html">TapeOut x402 offline route evidence</a> and <a href="https://vm5-openapi-x402.onrender.com/v1/x402-sample">free synthetic API sample</a>. The original merchant's separately priced <code>$0.01</code> live public quote checker is available through its existing merchant directory; this consultation offer is a different, manually scoped service.</p>
+  </section>
+  <section aria-labelledby="how-heading">
+    <h2 id="how-heading">How to request work without sharing secrets</h2>
+    <ol class="steps">
+      <li>Send only the public endpoint path, stated price/network, the minimal redacted 402/OPTIONS symptom, and your desired written deliverable.</li>
+      <li>We confirm that the requested public tests are authorised, reproducible, and feasible. We disclose substantial AI assistance and identify the responsible human economic owner without pretending to hold a professional audit license.</li>
+      <li>We agree the exact scope, fee, accepted asset/chain, refunds, delivery and review terms <strong>before</strong> any charge or client-specific work.</li>
+      <li>We deliver bounded offline test artifacts and one concise report. You can independently rerun the synthetic checks.</li>
+    </ol>
+    <p><strong>Never send us</strong> secret keys, seed phrases, signed payment payloads, bank identity, cookies, bearer headers, raw unredacted HARs, personal data, or private repository access. Use made-up values such as <code>example.invalid</code> for fixtures.</p>
+    <p class="muted">Neither a publicly listed service, a click on a contact link, a 402 response nor a draft quote is an order. No external customer payment is represented or claimed by this page.</p>
+  </section>
+</main>
+<footer class="foot"><small>Independent AI-assisted engineering · one beneficial human owner · Published October 2026 · <a href="https://github.com/livastic-vm3-primary-tmp-260920/slothproof-20261023">MIT-licensed open-source demonstration</a> · <a href="./index.html">Back to SlothProof</a></small></footer>
+</body>
+</html>
