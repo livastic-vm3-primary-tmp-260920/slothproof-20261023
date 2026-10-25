@@ -34,3 +34,12 @@ test('project nav and sitemap are self-consistent',()=>{
   assert.match(xml,/<lastmod>2026-10-25<\/lastmod>/);
   assert.doesNotMatch(xml,/urn:.*testnet/);
 });
+
+test('two-origin fixed-scope commercial quote is explicit, transparent, and nonbinding',()=>{
+  assert.match(p,/Two-origin price-contract QA bundle/);
+  assert.match(p,/\$39 <small>USDC on an agreed supported network/);
+  assert.match(p,/Two independently hosted public API origins/);
+  assert.match(p,/A single-origin \$19 request is a different scope/);
+  assert.match(p,/All listed prices are nonbinding until scope/);
+  assert.match(p,/mailto:onecursor1@gmail.com\?subject=x402%20two-origin/);
+});
